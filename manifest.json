@@ -1,0 +1,10 @@
+{
+  "name": "Pokedex WebApp",
+  "short_name": "Pokedex App",
+  "description": "Pokedex WebApp Using the PokeDev API",
+  "start_url": ".",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#FFFFFF",
+  "theme_color": "#FFFFFF"
+}
