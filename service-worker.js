@@ -1,12 +1,12 @@
-// NOME DO CACHE
+// CACHE NAME
 let cacheName = 'pokedex-v1';
 
-// CACHE DE ARQUIVOS
+// CACHE FILES
 let filesToCache = [
-    '/',
-    '/index.html',
-    '/main.js',
-    '/main.css'
+    './',
+    './index.html',
+    './main.js',
+    './main.css'
 ];
 
 self.addEventListener('install', function(event) {
