@@ -1,0 +1,59 @@
+html, body{
+    font-family: sans-serif;
+    margin: 0;
+    overflow: hidden;
+}
+
+#container{
+    height: 100vh;
+}
+
+/* IOS MODAL ONLY */
+.iosAlertBoxWebApp{
+    position: absolute;
+    bottom: -15%;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    z-index: 5;
+    opacity: 0;
+    display: none;
+}
+
+.actualContent{
+    height: 8vh;
+    width: 95vw;
+    padding: 5px;
+    font-size: 10pt;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: lightgray;
+    border-radius: 10px;
+}
+
+.iosAlertBoxWebApp i{
+    font-size: 6vh;
+    color: gray;
+    margin: 5px;
+}
+
+.triangleDown {
+    align-self: center;
+    width: 0; 
+    height: 0; 
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-top: 20px solid lightgray;
+}
+
+@keyframes show{
+    10%, 90%{
+        transform: translateY(-115%);
+        opacity: 1;
+    }
+    100%{
+        transform: translateY(0);
+        opacity: 0;
+    }
+}

@@ -9,6 +9,10 @@
     <meta name="Description"
         content="Pokedex WebApp in PWA, developed by: Daniel Yuki(AKA DYuki) just 4fun and self improvement">
 
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
     <!-- Manifest -->
     <link rel="manifest" href="manifest.json">
 
@@ -61,6 +65,18 @@
 </head>
 
 <body>
+    <div id="container">
+
+
+        <!-- MODAL POPUP, VISIBLE ONLY FOR IOS USERS -->
+        <div class="iosAlertBoxWebApp">
+            <div class="actualContent">
+                <i class="fa fa-plus-square" aria-hidden="true"></i>
+                <p>Install this WebApp on your iPhone: tap on Share Button then add to HomeScreen.</p>
+            </div>
+            <div class="triangleDown"></div>
+        </div>
+    </div>
 </body>
 
 </html>
