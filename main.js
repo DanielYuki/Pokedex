@@ -1,5 +1,27 @@
 
 
+const mainUrl = 'https://pokeapi.bastionbot.org/v1/pokemon/658'
+
+async function getPoke() {
+    console.log('Loading...');
+    try {
+        let waitPoke = await fetch(`${mainUrl}`)
+        let pokeReady = await waitPoke.json();
+        console.log('Ready!');
+        console.log(pokeReady.value);
+        console.log(pokeReady);
+
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+let getPokeBtn = document.querySelector('#test')
+getPokeBtn.onclick = () => {
+    console.log('oi')
+    getPoke()
+}
+
 
 // Detects if device is on iOS 
 const isIos = () => {
