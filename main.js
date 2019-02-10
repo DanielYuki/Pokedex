@@ -1,7 +1,38 @@
 
 
 let searchInput = document.querySelector('#searchPkm');
+let unorderedListPkm = document.querySelector('#pkmList');
 
+let allPkm = ['Bulbasaur', 'Ivysaur', 'Venusaur', 'Charmander', 'Charmeleon', 'Charizard', 'Squirtle', 'Wartortle', 'Blastoise','Caterpie','Metapod','Butterfree','Weedle','Kakuna','Beedrill','Pidgey','Pidgeotto','Pidgeot','Rattata','Raticate','Spearow','Fearow','Ekans','Arbok','Pikachu','Raichu','Sandshrew','Sandslash','Nidoran♀','Nidorina','Nidoqueen','Nidoran♂','Nidorino','Nidoking','Clefairy','Clefable','Vulpix','Ninetales','Jigglypuff','Wigglytuff','Zubat','Golbat','Oddish','Gloom','Vileplume','Paras','Parasect','Venonat','Venomoth','Diglett','Dugtrio','Meowth','Persian','Psyduck','Golduck','Mankey','Primeape','Growlithe','Arcanine','Poliwag','Poliwhirl','Poliwrath','Abra','Kadabra','Alakazam','Machop','Machoke','Machamp','Bellsprout','Weepinbell','Victreebel','Tentacool','Tentacruel','Geodude','Graveler','Golem','Ponyta','Rapidash','Slowpoke','Slowbro','Magnemite','Magneton',"Farfetch'd",'Doduo','Dodrio','Seel','Dewgong','Grimer','Muk','Shellder','Cloyster','Gastly','Haunter','Gengar','Onix','Drowzee','Hypno','Krabby','Kingler','Voltorb','Electrode','Exeggcute','Exeggutor','Cubone','Marowak','Hitmonlee','Hitmonchan','Lickitung','Koffing','Weezing','Rhyhorn','Rhydon','Chansey','Tangela','Kangaskhan',    'Horsea','Seadra','Goldeen','Seaking','Staryu','Starmie','Mr. Mime','Scyther','Jynx','Electabuzz','Magmar','Pinsir','Tauros','Magikarp','Gyarados','Lapras','Ditto',    'Eevee','Vaporeon','Jolteon','Flareon','Porygon','Omanyte','Omastar','Kabuto','Kabutops','Aerodactyl','Snorlax','Articuno','Zapdos',    'Moltres','Dratini','Dragonair','Dragonite','Mewtwo','Mew'];
+function filterFunction() {
+    let filter, li, i, txtValue;
+    filter = searchInput.value.toLowerCase();
+    li = unorderedListPkm.getElementsByTagName("li");
+    for (i = 0; i < li.length; i++) {
+        txtValue = li[i].textContent || li[i].innerText;
+        if (txtValue.toLowerCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
+}
+
+function listCreator() {
+    for (let i = 0; i < allPkm.length; i++) {
+        let list = document.createElement('li');
+        let listContainerNumber = document.createElement('span');
+        let listContentNumber = document.createTextNode(`#${i + 1}`);
+        let listContentName = document.createTextNode(allPkm[i]);
+        listContainerNumber.appendChild(listContentNumber);
+        list.appendChild(listContainerNumber)
+        list.appendChild(listContentName);
+        unorderedListPkm.appendChild(list);
+    }
+}
+
+
+// GET POKEMON INFORMATION
 const mainUrl = 'https://pokeapi.co/api/v2/pokemon/';
 let pokemon, number = '';
 
@@ -27,6 +58,7 @@ async function getPoke() {
         console.error(error);
     }
 }
+// ------------------------
 
 let getPokeBtn = document.querySelector('#test')
 getPokeBtn.onclick = () => {
@@ -38,7 +70,7 @@ getPokeBtn.onclick = () => {
     }
 }
 
-
+listCreator()
 
 
 // Detects if device is on iOS 
