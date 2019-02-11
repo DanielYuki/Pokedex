@@ -1,13 +1,13 @@
 
 
 let searchInput = document.querySelector('#searchPkm');
-let unorderedListPkm = document.querySelector('#pkmList');
+let pkmCardsList = document.querySelector('#pkmList');
 
-let allPkm = ['Bulbasaur', 'Ivysaur', 'Venusaur', 'Charmander', 'Charmeleon', 'Charizard', 'Squirtle', 'Wartortle', 'Blastoise','Caterpie','Metapod','Butterfree','Weedle','Kakuna','Beedrill','Pidgey','Pidgeotto','Pidgeot','Rattata','Raticate','Spearow','Fearow','Ekans','Arbok','Pikachu','Raichu','Sandshrew','Sandslash','Nidoran♀','Nidorina','Nidoqueen','Nidoran♂','Nidorino','Nidoking','Clefairy','Clefable','Vulpix','Ninetales','Jigglypuff','Wigglytuff','Zubat','Golbat','Oddish','Gloom','Vileplume','Paras','Parasect','Venonat','Venomoth','Diglett','Dugtrio','Meowth','Persian','Psyduck','Golduck','Mankey','Primeape','Growlithe','Arcanine','Poliwag','Poliwhirl','Poliwrath','Abra','Kadabra','Alakazam','Machop','Machoke','Machamp','Bellsprout','Weepinbell','Victreebel','Tentacool','Tentacruel','Geodude','Graveler','Golem','Ponyta','Rapidash','Slowpoke','Slowbro','Magnemite','Magneton',"Farfetch'd",'Doduo','Dodrio','Seel','Dewgong','Grimer','Muk','Shellder','Cloyster','Gastly','Haunter','Gengar','Onix','Drowzee','Hypno','Krabby','Kingler','Voltorb','Electrode','Exeggcute','Exeggutor','Cubone','Marowak','Hitmonlee','Hitmonchan','Lickitung','Koffing','Weezing','Rhyhorn','Rhydon','Chansey','Tangela','Kangaskhan',    'Horsea','Seadra','Goldeen','Seaking','Staryu','Starmie','Mr.Mime','Scyther','Jynx','Electabuzz','Magmar','Pinsir','Tauros','Magikarp','Gyarados','Lapras','Ditto',    'Eevee','Vaporeon','Jolteon','Flareon','Porygon','Omanyte','Omastar','Kabuto','Kabutops','Aerodactyl','Snorlax','Articuno','Zapdos',    'Moltres','Dratini','Dragonair','Dragonite','Mewtwo','Mew'];
+let allPkm = ['Bulbasaur', 'Ivysaur', 'Venusaur', 'Charmander', 'Charmeleon', 'Charizard', 'Squirtle', 'Wartortle', 'Blastoise', 'Caterpie', 'Metapod', 'Butterfree', 'Weedle', 'Kakuna', 'Beedrill', 'Pidgey', 'Pidgeotto', 'Pidgeot', 'Rattata', 'Raticate', 'Spearow', 'Fearow', 'Ekans', 'Arbok', 'Pikachu', 'Raichu', 'Sandshrew', 'Sandslash', 'Nidoran♀', 'Nidorina', 'Nidoqueen', 'Nidoran♂', 'Nidorino', 'Nidoking', 'Clefairy', 'Clefable', 'Vulpix', 'Ninetales', 'Jigglypuff', 'Wigglytuff', 'Zubat', 'Golbat', 'Oddish', 'Gloom', 'Vileplume', 'Paras', 'Parasect', 'Venonat', 'Venomoth', 'Diglett', 'Dugtrio', 'Meowth', 'Persian', 'Psyduck', 'Golduck', 'Mankey', 'Primeape', 'Growlithe', 'Arcanine', 'Poliwag', 'Poliwhirl', 'Poliwrath', 'Abra', 'Kadabra', 'Alakazam', 'Machop', 'Machoke', 'Machamp', 'Bellsprout', 'Weepinbell', 'Victreebel', 'Tentacool', 'Tentacruel', 'Geodude', 'Graveler', 'Golem', 'Ponyta', 'Rapidash', 'Slowpoke', 'Slowbro', 'Magnemite', 'Magneton', "Farfetch'd", 'Doduo', 'Dodrio', 'Seel', 'Dewgong', 'Grimer', 'Muk', 'Shellder', 'Cloyster', 'Gastly', 'Haunter', 'Gengar', 'Onix', 'Drowzee', 'Hypno', 'Krabby', 'Kingler', 'Voltorb', 'Electrode', 'Exeggcute', 'Exeggutor', 'Cubone', 'Marowak', 'Hitmonlee', 'Hitmonchan', 'Lickitung', 'Koffing', 'Weezing', 'Rhyhorn', 'Rhydon', 'Chansey', 'Tangela', 'Kangaskhan', 'Horsea', 'Seadra', 'Goldeen', 'Seaking', 'Staryu', 'Starmie', 'Mr.Mime', 'Scyther', 'Jynx', 'Electabuzz', 'Magmar', 'Pinsir', 'Tauros', 'Magikarp', 'Gyarados', 'Lapras', 'Ditto', 'Eevee', 'Vaporeon', 'Jolteon', 'Flareon', 'Porygon', 'Omanyte', 'Omastar', 'Kabuto', 'Kabutops', 'Aerodactyl', 'Snorlax', 'Articuno', 'Zapdos', 'Moltres', 'Dratini', 'Dragonair', 'Dragonite', 'Mewtwo', 'Mew'];
 function filterFunction() {
     let filter, li, i, txtValue;
-    filter = searchInput.value.toLowerCase();
-    li = unorderedListPkm.getElementsByTagName("li");
+    filter = searchInput.value.toLowerCase().replace(/\s/g, '');
+    li = pkmCardsList.getElementsByTagName("li");
     for (i = 0; i < li.length; i++) {
         txtValue = li[i].textContent || li[i].innerText;
         if (txtValue.toLowerCase().indexOf(filter) > -1) {
@@ -27,7 +27,7 @@ function listCreator() {
         listContainerNumber.appendChild(listContentNumber);
         list.appendChild(listContainerNumber)
         list.appendChild(listContentName);
-        unorderedListPkm.appendChild(list);
+        pkmCardsList.appendChild(list);
     }
 }
 
@@ -36,24 +36,27 @@ function listCreator() {
 const mainUrl = 'https://pokeapi.co/api/v2/pokemon/';
 let pokemon, number = '';
 
-async function getPoke() {
+async function getPoke(mainUrl, pokemon, number) {
     pokemon = searchInput.value.toLowerCase()
     console.log('Loading...');
     try {
         let waitPoke = await fetch(`${mainUrl}${pokemon}${number}`)
         let pokeReady = await waitPoke.json();
         console.log('Ready!');
+        let pokemonName = pokeReady.name;
+        let pokemonSprite = pokeReady.sprites.front_default;
+        let pokemonType;
         console.log(pokeReady.name);
         console.log(pokeReady.sprites.front_default);
+        console.log(pokeReady.height / 10)
+        console.log(pokeReady.weight / 10)
         for (let i = 0; i < 2; i++) {
             if (pokeReady.types[i] !== undefined) {
                 console.log(pokeReady.types[i].type.name);
             }
         }
         console.log(pokeReady);
-        let showImg = document.querySelector('#img');
-        showImg.innerHTML = `<img src="${pokeReady.sprites.front_default}" alt="${pokemon}">`
-
+        // pkmCreator(pokemonName, pokemonSprite, pokemonType, number)
     } catch (error) {
         console.error(error);
     }
@@ -70,7 +73,18 @@ getPokeBtn.onclick = () => {
     }
 }
 
-listCreator()
+
+let showCard = document.querySelectorAll('.card');
+
+for (cards of showCard) {
+    cards.onclick = flip;
+}
+
+function flip() {
+    this.firstChild.nextSibling.classList.toggle('backFlip')
+    this.lastChild.previousSibling.classList.toggle('frontFlip')
+}
+
 
 
 // Detects if device is on iOS 

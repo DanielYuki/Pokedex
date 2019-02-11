@@ -34,15 +34,7 @@ main{
     margin-bottom: 6px; 
 }
 
-#pkmList{
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    height: 50vh;
-    overflow: scroll;
-}
-
-li{
+/* li{
     border: 1px solid #ddd; 
     margin-top: -1px; 
     padding: 14px;
@@ -60,6 +52,66 @@ li:nth-child(even){
 
 li:hover:not(.header){
     background-color: #eee;
+} */
+
+#pkmList{
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+	width: 100%;
+	height: 70vh;
+	justify-content:space-evenly;
+	display: flex;
+	align-items: center;
+    flex-wrap: wrap;
+    overflow: scroll;
+    color: rgb(19, 19, 19);
+}
+
+.card{
+    border: 10px;
+    width: 45vw;
+    height: 50vw;
+    margin: 10px 0px;
+    border-radius: 10px;
+}
+
+.front, .back{
+    box-shadow: 5px 5px 20px -8px rgba(0,0,0,0.51);
+    border-radius: 10px;
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    position: relative;
+    transition: transform .3s linear;
+	justify-content:center;
+	display:flex;
+    align-items:center;
+}
+
+.front{
+    font-size: 7vw;
+    transform: perspective(600px) rotateY(0deg);
+    -webkit-transform: perspective(600px) rotateY(0deg);
+}
+
+.back{
+    font-size: 7vw;
+    transform: perspective(600px) rotateY(180deg) translateY(-100%);
+    -webkit-transform: perspective(600px) rotateY(180deg) translateY(-100%);
+}
+
+.frontFlip{
+    -webkit-transform: perspective(600px) rotateY(-180deg);
+    transform: perspective(600px) rotateY(-180deg);
+}
+
+.backFlip{
+    -webkit-transform: perspective(600px) rotateY(0deg) translateY(-100%);
+    transform: perspective(600px) rotateY(0deg) translateY(-100%)
 }
 
 footer{
