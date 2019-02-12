@@ -11,7 +11,7 @@ html, body{
 }
 
 header{
-    height: 10vh;
+    height: 5vh;
     background-color: #0078ff;
     justify-content: center;
     align-items: center;
@@ -59,7 +59,7 @@ li:hover:not(.header){
     margin: 0;
     list-style-type: none;
 	width: 100%;
-	height: 65vh;
+	height: calc(75vh + 6px);
 	justify-content:space-evenly;
 	display: flex;
 	align-items: center;
@@ -74,6 +74,10 @@ li:hover:not(.header){
     height: 55vw;
     margin: 10px 0px;
     border-radius: 10px;
+}
+
+.card div,span:first-letter {
+    text-transform:capitalize;
 }
 
 .front, .back{
@@ -126,13 +130,13 @@ footer{
     bottom: 0;
 }
 
-footer > div{
+/* footer > div{
     width: 30vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
+} */
 
 
 .o-pokeball {
@@ -182,13 +186,14 @@ footer > div{
     transform: translate(-50%, -50%);
 }
 
-#show{
-    width: 30vw;
-    height: 31vw;
+.pkbDetail{
+    width: 105px;
+    height: 115px;
     border-radius: 50%;
     background-color: #0078ff;
-    position: absolute;
-    bottom: -20px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
 }
 
 /* IOS MODAL ONLY */

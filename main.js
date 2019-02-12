@@ -55,13 +55,13 @@ async function getPoke(mainUrl, pokemon, number) {
             console.log(pokeReady.height / 10)
             console.log(pokeReady.weight / 10)
 
-            for (let i = 0; i < pokeReady.types.length ; i++) {
+            for (let i = 0; i < pokeReady.types.length; i++) {
                 if (pokeReady.types[i] !== undefined) {
                     pokemonType.push(pokeReady.types[i].type.name)
                 }
             }
 
-            console.log(typeof(pokemonType));
+            console.log(typeof (pokemonType));
             console.log(pokemonType);
             console.log(pokeReady);
             pkmCreator(pokemonName, pokemonSprite, pokemonType, number)
@@ -71,8 +71,6 @@ async function getPoke(mainUrl, pokemon, number) {
         number++
         until++
         await getPoke(mainUrl, pokemon, number)
-
-
     }
 }
 // ------------------------
@@ -104,19 +102,26 @@ function pkmCreator(name, sprite, type, number) {
     let createName = document.createElement('span');
     let createType = document.createElement('div');
 
-    // ADDING CLASSES TO THE CARD TEMPLATE
+    // ADDING CLASSES TO THE CARD ELEMENTS
     createCard.classList.add('card');
     createCardFront.classList.add('front');
     createCardBack.classList.add('back');
 
     createSprite.classList.add(`imgPkm${number}`)
+    createType.classList.add('pokemonTypes')
 
     // ADDING CONTENT INFO
     let nameContent = document.createTextNode(`${name}`);
-    let typeContent = document.createTextNode(`${type}`);
+
+        // POKEMON TYPE CONSTRUCTOR
+    for (let i = 0; i < type.length; i++) {
+        let typeContent = document.createTextNode(`${type[i]}`);
+        let typesDiv = document.createElement('div');
+        typesDiv.appendChild(typeContent);
+        createType.appendChild(typesDiv);
+    }
 
     createName.appendChild(nameContent);
-    createType.appendChild(typeContent);
 
     createCardFront.appendChild(createSprite);
     createCardFront.appendChild(createName);
@@ -124,10 +129,6 @@ function pkmCreator(name, sprite, type, number) {
 
     createCard.appendChild(createCardFront)
     createCard.appendChild(createCardBack)
-    // createCard.appendChild(createType);
-    // list.appendChild(listContainerNumber)
-    // list.appendChild(listContentName);
-
 
     pkmCardsList.appendChild(createCard);
 
