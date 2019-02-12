@@ -37,9 +37,9 @@ const mainUrl = 'https://pokeapi.co/api/v2/pokemon/';
 let pokemon = '';
 let number = 1
 
-let until = 1
+let until = 120
 async function getPoke(mainUrl, pokemon, number) {
-    while (until < 152) {
+    while (until < allPkm.length) {
         pokemon = searchInput.value.toLowerCase()
         console.log('Loading...');
         try {
@@ -48,19 +48,21 @@ async function getPoke(mainUrl, pokemon, number) {
 
             let pokemonName = pokeReady.name;
             let pokemonSprite = pokeReady.sprites.front_default;
-            let pokemonType;
+            let pokemonType = [];
 
             console.log(pokeReady.name);
             console.log(pokeReady.sprites.front_default);
             console.log(pokeReady.height / 10)
             console.log(pokeReady.weight / 10)
 
-            for (let i = 0; i < 2; i++) {
+            for (let i = 0; i < pokeReady.types.length ; i++) {
                 if (pokeReady.types[i] !== undefined) {
-                    console.log(pokeReady.types[i].type.name);
+                    pokemonType.push(pokeReady.types[i].type.name)
                 }
             }
 
+            console.log(typeof(pokemonType));
+            console.log(pokemonType);
             console.log(pokeReady);
             pkmCreator(pokemonName, pokemonSprite, pokemonType, number)
         } catch (error) {
@@ -100,7 +102,7 @@ function pkmCreator(name, sprite, type, number) {
     // CARD FRONT
     let createSprite = document.createElement('div');
     let createName = document.createElement('span');
-    // let createType = document.createElement('div');
+    let createType = document.createElement('div');
 
     // ADDING CLASSES TO THE CARD TEMPLATE
     createCard.classList.add('card');
@@ -111,11 +113,14 @@ function pkmCreator(name, sprite, type, number) {
 
     // ADDING CONTENT INFO
     let nameContent = document.createTextNode(`${name}`);
+    let typeContent = document.createTextNode(`${type}`);
 
     createName.appendChild(nameContent);
+    createType.appendChild(typeContent);
 
     createCardFront.appendChild(createSprite);
     createCardFront.appendChild(createName);
+    createCardFront.appendChild(createType);
 
     createCard.appendChild(createCardFront)
     createCard.appendChild(createCardBack)
