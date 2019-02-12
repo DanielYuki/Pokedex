@@ -18,66 +18,123 @@ function filterFunction() {
     }
 }
 
-function listCreator() {
-    for (let i = 0; i < allPkm.length; i++) {
-        let list = document.createElement('li');
-        let listContainerNumber = document.createElement('span');
-        let listContentNumber = document.createTextNode(`#${i + 1}`);
-        let listContentName = document.createTextNode(allPkm[i]);
-        listContainerNumber.appendChild(listContentNumber);
-        list.appendChild(listContainerNumber)
-        list.appendChild(listContentName);
-        pkmCardsList.appendChild(list);
-    }
-}
+// function listCreator() {
+//     for (let i = 0; i < allPkm.length; i++) {
+//         let list = document.createElement('li');
+//         let listContainerNumber = document.createElement('span');
+//         let listContentNumber = document.createTextNode(`#${i + 1}`);
+//         let listContentName = document.createTextNode(allPkm[i]);
+//         listContainerNumber.appendChild(listContentNumber);
+//         list.appendChild(listContainerNumber)
+//         list.appendChild(listContentName);
+//         pkmCardsList.appendChild(list);
+//     }
+// }
 
 
 // GET POKEMON INFORMATION
 const mainUrl = 'https://pokeapi.co/api/v2/pokemon/';
-let pokemon, number = '';
+let pokemon = '';
+let number = 1
 
+let until = 1
 async function getPoke(mainUrl, pokemon, number) {
-    pokemon = searchInput.value.toLowerCase()
-    console.log('Loading...');
-    try {
-        let waitPoke = await fetch(`${mainUrl}${pokemon}${number}`)
-        let pokeReady = await waitPoke.json();
-        console.log('Ready!');
-        let pokemonName = pokeReady.name;
-        let pokemonSprite = pokeReady.sprites.front_default;
-        let pokemonType;
-        console.log(pokeReady.name);
-        console.log(pokeReady.sprites.front_default);
-        console.log(pokeReady.height / 10)
-        console.log(pokeReady.weight / 10)
-        for (let i = 0; i < 2; i++) {
-            if (pokeReady.types[i] !== undefined) {
-                console.log(pokeReady.types[i].type.name);
+    while (until < 152) {
+        pokemon = searchInput.value.toLowerCase()
+        console.log('Loading...');
+        try {
+            let waitPoke = await fetch(`${mainUrl}${pokemon}${number}`)
+            let pokeReady = await waitPoke.json();
+
+            let pokemonName = pokeReady.name;
+            let pokemonSprite = pokeReady.sprites.front_default;
+            let pokemonType;
+
+            console.log(pokeReady.name);
+            console.log(pokeReady.sprites.front_default);
+            console.log(pokeReady.height / 10)
+            console.log(pokeReady.weight / 10)
+
+            for (let i = 0; i < 2; i++) {
+                if (pokeReady.types[i] !== undefined) {
+                    console.log(pokeReady.types[i].type.name);
+                }
             }
+
+            console.log(pokeReady);
+            pkmCreator(pokemonName, pokemonSprite, pokemonType, number)
+        } catch (error) {
+            console.error(error);
         }
-        console.log(pokeReady);
-        // pkmCreator(pokemonName, pokemonSprite, pokemonType, number)
-    } catch (error) {
-        console.error(error);
+        number++
+        until++
+        await getPoke(mainUrl, pokemon, number)
+
+
     }
 }
 // ------------------------
 
+let n = 1
 let getPokeBtn = document.querySelector('#test')
 getPokeBtn.onclick = () => {
     if (searchInput.value == '') {
         // alert('?')
+        getPoke(mainUrl, pokemon, n);
+        n++
         console.log('?')
     } else {
         getPoke()
     }
+
+
 }
 
 
-let showCard = document.querySelectorAll('.card');
+function pkmCreator(name, sprite, type, number) {
+    // CARD TEMPLATE
+    let createCard = document.createElement('li');
+    let createCardFront = document.createElement('div');
+    let createCardBack = document.createElement('div');
 
-for (cards of showCard) {
-    cards.onclick = flip;
+    // CARD FRONT
+    let createSprite = document.createElement('div');
+    let createName = document.createElement('span');
+    // let createType = document.createElement('div');
+
+    // ADDING CLASSES TO THE CARD TEMPLATE
+    createCard.classList.add('card');
+    createCardFront.classList.add('front');
+    createCardBack.classList.add('back');
+
+    createSprite.classList.add(`imgPkm${number}`)
+
+    // ADDING CONTENT INFO
+    let nameContent = document.createTextNode(`${name}`);
+
+    createName.appendChild(nameContent);
+
+    createCardFront.appendChild(createSprite);
+    createCardFront.appendChild(createName);
+
+    createCard.appendChild(createCardFront)
+    createCard.appendChild(createCardBack)
+    // createCard.appendChild(createType);
+    // list.appendChild(listContainerNumber)
+    // list.appendChild(listContentName);
+
+
+    pkmCardsList.appendChild(createCard);
+
+    // ADD IMG
+    let spriteContent = document.querySelector(`.imgPkm${number}`);
+    spriteContent.innerHTML = `<img src="${sprite}" alt="${name}">`
+
+    // CARD FLIP EFFECT
+    let showCard = document.querySelectorAll('.card');
+    for (cards of showCard) {
+        cards.onclick = flip;
+    }
 }
 
 function flip() {
@@ -85,7 +142,11 @@ function flip() {
     this.lastChild.previousSibling.classList.toggle('frontFlip')
 }
 
+// for (let i = 1; i < 18; i++) {
+//     getPoke(mainUrl, pokemon, i)
+// }
 
+getPoke(mainUrl, pokemon, number)
 
 // Detects if device is on iOS 
 const isIos = () => {
