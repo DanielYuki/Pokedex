@@ -5,11 +5,15 @@ let pkmCardsList = document.querySelector('#pkmList');
 
 let allPkm = ['Bulbasaur', 'Ivysaur', 'Venusaur', 'Charmander', 'Charmeleon', 'Charizard', 'Squirtle', 'Wartortle', 'Blastoise', 'Caterpie', 'Metapod', 'Butterfree', 'Weedle', 'Kakuna', 'Beedrill', 'Pidgey', 'Pidgeotto', 'Pidgeot', 'Rattata', 'Raticate', 'Spearow', 'Fearow', 'Ekans', 'Arbok', 'Pikachu', 'Raichu', 'Sandshrew', 'Sandslash', 'Nidoran♀', 'Nidorina', 'Nidoqueen', 'Nidoran♂', 'Nidorino', 'Nidoking', 'Clefairy', 'Clefable', 'Vulpix', 'Ninetales', 'Jigglypuff', 'Wigglytuff', 'Zubat', 'Golbat', 'Oddish', 'Gloom', 'Vileplume', 'Paras', 'Parasect', 'Venonat', 'Venomoth', 'Diglett', 'Dugtrio', 'Meowth', 'Persian', 'Psyduck', 'Golduck', 'Mankey', 'Primeape', 'Growlithe', 'Arcanine', 'Poliwag', 'Poliwhirl', 'Poliwrath', 'Abra', 'Kadabra', 'Alakazam', 'Machop', 'Machoke', 'Machamp', 'Bellsprout', 'Weepinbell', 'Victreebel', 'Tentacool', 'Tentacruel', 'Geodude', 'Graveler', 'Golem', 'Ponyta', 'Rapidash', 'Slowpoke', 'Slowbro', 'Magnemite', 'Magneton', "Farfetch'd", 'Doduo', 'Dodrio', 'Seel', 'Dewgong', 'Grimer', 'Muk', 'Shellder', 'Cloyster', 'Gastly', 'Haunter', 'Gengar', 'Onix', 'Drowzee', 'Hypno', 'Krabby', 'Kingler', 'Voltorb', 'Electrode', 'Exeggcute', 'Exeggutor', 'Cubone', 'Marowak', 'Hitmonlee', 'Hitmonchan', 'Lickitung', 'Koffing', 'Weezing', 'Rhyhorn', 'Rhydon', 'Chansey', 'Tangela', 'Kangaskhan', 'Horsea', 'Seadra', 'Goldeen', 'Seaking', 'Staryu', 'Starmie', 'Mr.Mime', 'Scyther', 'Jynx', 'Electabuzz', 'Magmar', 'Pinsir', 'Tauros', 'Magikarp', 'Gyarados', 'Lapras', 'Ditto', 'Eevee', 'Vaporeon', 'Jolteon', 'Flareon', 'Porygon', 'Omanyte', 'Omastar', 'Kabuto', 'Kabutops', 'Aerodactyl', 'Snorlax', 'Articuno', 'Zapdos', 'Moltres', 'Dratini', 'Dragonair', 'Dragonite', 'Mewtwo', 'Mew'];
 function filterFunction() {
-    let filter, li, i, txtValue;
+    let filter, li, i, txtValue, name, number;
     filter = searchInput.value.toLowerCase().replace(/\s/g, '');
     li = pkmCardsList.getElementsByTagName("li");
+    //FILTER TYPES
+    name = pkmCardsList.getElementsByTagName("h4");
+    number = pkmCardsList.getElementsByTagName("span");
+
     for (i = 0; i < li.length; i++) {
-        txtValue = li[i].textContent || li[i].innerText;
+        txtValue = name[i].textContent || name[i].innerText;
         if (txtValue.toLowerCase().indexOf(filter) > -1) {
             li[i].style.display = "";
         } else {
@@ -50,6 +54,8 @@ async function getPoke(mainUrl, pokemon, number) {
             let pokemonSprite = pokeReady.sprites.front_default;
             let pokemonSpriteBack = pokeReady.sprites.back_default;
             let pokemonType = [];
+            let pokemonHeight = pokeReady.height / 10;
+            let pokemonWeight = pokeReady.weight / 10;
 
             console.log(pokeReady.name);
             console.log(pokeReady.sprites.front_default);
@@ -66,7 +72,7 @@ async function getPoke(mainUrl, pokemon, number) {
             console.log(typeof (pokemonType));
             console.log(pokemonType);
             console.log(pokeReady);
-            pkmCreator(pokemonName, pokemonSprite, pokemonType, number, pokemonSpriteBack)
+            pkmCreator(pokemonName, pokemonSprite, pokemonType, number, pokemonSpriteBack, pokemonHeight, pokemonWeight)
         } catch (error) {
             console.error(error);
         }
@@ -93,7 +99,7 @@ getPokeBtn.onclick = () => {
 }
 
 
-function pkmCreator(name, sprite, type, number, spriteBack) {
+function pkmCreator(name, sprite, type, number, spriteBack, height, weight) {
     // CARD TEMPLATE
     let createCard = document.createElement('li');
     let createCardFront = document.createElement('div');
@@ -101,11 +107,14 @@ function pkmCreator(name, sprite, type, number, spriteBack) {
 
     // CARD FRONT
     let createSprite = document.createElement('div');
-    let createName = document.createElement('span');
+    let createName = document.createElement('h4');
     let createType = document.createElement('div');
 
     //CARD BACK
     let createSpriteBack = document.createElement('div');
+    let createPkmNumber = document.createElement('span');
+    let createPkmHeight = document.createElement('div');
+    let createPkmWeight = document.createElement('div');
 
     // ADDING CLASSES TO THE CARD ELEMENTS
     createCard.classList.add('card');
@@ -118,6 +127,9 @@ function pkmCreator(name, sprite, type, number, spriteBack) {
 
     // ADDING CONTENT INFO
     let nameContent = document.createTextNode(`${name}`);
+    let pkmNumberContent = document.createTextNode(`# ${number}`);
+    let pkmHeightContent = document.createTextNode(`Height: ${height}m`);
+    let pkmWeightContent = document.createTextNode(`Weight: ${weight}kg`);
 
         // POKEMON TYPE CONSTRUCTOR
     for (let i = 0; i < type.length; i++) {
@@ -127,7 +139,11 @@ function pkmCreator(name, sprite, type, number, spriteBack) {
         createType.appendChild(typesDiv);
     }
 
+    // GATHERING CONTENTS
     createName.appendChild(nameContent);
+    createPkmNumber.appendChild(pkmNumberContent);
+    createPkmHeight.appendChild(pkmHeightContent);
+    createPkmWeight.appendChild(pkmWeightContent);
 
     // CARD FRONT
     createCardFront.appendChild(createSprite);
@@ -136,6 +152,9 @@ function pkmCreator(name, sprite, type, number, spriteBack) {
 
     // CARD BACK
     createCardBack.appendChild(createSpriteBack);
+    createCardBack.appendChild(createPkmNumber);
+    createCardBack.appendChild(createPkmHeight);
+    createCardBack.appendChild(createPkmWeight);
 
 
     createCard.appendChild(createCardFront)
