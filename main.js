@@ -48,10 +48,12 @@ async function getPoke(mainUrl, pokemon, number) {
 
             let pokemonName = pokeReady.name;
             let pokemonSprite = pokeReady.sprites.front_default;
+            let pokemonSpriteBack = pokeReady.sprites.back_default;
             let pokemonType = [];
 
             console.log(pokeReady.name);
             console.log(pokeReady.sprites.front_default);
+            console.log(pokeReady.sprites.back_default);
             console.log(pokeReady.height / 10)
             console.log(pokeReady.weight / 10)
 
@@ -64,7 +66,7 @@ async function getPoke(mainUrl, pokemon, number) {
             console.log(typeof (pokemonType));
             console.log(pokemonType);
             console.log(pokeReady);
-            pkmCreator(pokemonName, pokemonSprite, pokemonType, number)
+            pkmCreator(pokemonName, pokemonSprite, pokemonType, number, pokemonSpriteBack)
         } catch (error) {
             console.error(error);
         }
@@ -91,7 +93,7 @@ getPokeBtn.onclick = () => {
 }
 
 
-function pkmCreator(name, sprite, type, number) {
+function pkmCreator(name, sprite, type, number, spriteBack) {
     // CARD TEMPLATE
     let createCard = document.createElement('li');
     let createCardFront = document.createElement('div');
@@ -102,12 +104,16 @@ function pkmCreator(name, sprite, type, number) {
     let createName = document.createElement('span');
     let createType = document.createElement('div');
 
+    //CARD BACK
+    let createSpriteBack = document.createElement('div');
+
     // ADDING CLASSES TO THE CARD ELEMENTS
     createCard.classList.add('card');
     createCardFront.classList.add('front');
     createCardBack.classList.add('back');
 
     createSprite.classList.add(`imgPkm${number}`)
+    createSpriteBack.classList.add(`imgPkmBack${number}`)
     createType.classList.add('pokemonTypes')
 
     // ADDING CONTENT INFO
@@ -123,18 +129,26 @@ function pkmCreator(name, sprite, type, number) {
 
     createName.appendChild(nameContent);
 
+    // CARD FRONT
     createCardFront.appendChild(createSprite);
     createCardFront.appendChild(createName);
     createCardFront.appendChild(createType);
+
+    // CARD BACK
+    createCardBack.appendChild(createSpriteBack);
+
 
     createCard.appendChild(createCardFront)
     createCard.appendChild(createCardBack)
 
     pkmCardsList.appendChild(createCard);
 
-    // ADD IMG
+    // ADD IMG FRONT
     let spriteContent = document.querySelector(`.imgPkm${number}`);
     spriteContent.innerHTML = `<img src="${sprite}" alt="${name}">`
+    // ADD IMG BACK
+    let spriteContentBack = document.querySelector(`.imgPkmBack${number}`);
+    spriteContentBack.innerHTML = `<img src="${spriteBack}" alt="${name}">`
 
     // CARD FLIP EFFECT
     let showCard = document.querySelectorAll('.card');

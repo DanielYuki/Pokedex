@@ -8,14 +8,12 @@ html, body{
 #container{
     height: 100vh;
     background-color: white;
+    overflow: hidden;
 }
 
 header{
     height: 5vh;
     background-color: #0078ff;
-    justify-content: center;
-    align-items: center;
-    display: flex;
 }
 
 h1,h2,h3,h4,h5,h6{
@@ -128,17 +126,10 @@ footer{
     align-items: center;
     position: absolute;
     bottom: 0;
+    overflow: hidden;
 }
 
-/* footer > div{
-    width: 30vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-} */
-
-
+/* Pokeball Drawing */
 .o-pokeball {
     z-index: 5;
     width: 75px;
