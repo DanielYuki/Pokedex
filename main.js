@@ -83,20 +83,18 @@ async function getPoke(mainUrl, pokemon, number) {
 }
 // ------------------------
 
-let n = 1
-let getPokeBtn = document.querySelector('#test')
-getPokeBtn.onclick = () => {
-    if (searchInput.value == '') {
-        // alert('?')
-        getPoke(mainUrl, pokemon, n);
-        n++
-        console.log('?')
-    } else {
-        getPoke()
-    }
-
-
-}
+// let n = 1
+// let getPokeBtn = document.querySelector('#test')
+// getPokeBtn.onclick = () => {
+//     if (searchInput.value == '') {
+//         // alert('?')
+//         getPoke(mainUrl, pokemon, n);
+//         n++
+//         console.log('?')
+//     } else {
+//         getPoke()
+//     }
+// }
 
 
 function pkmCreator(name, sprite, type, number, spriteBack, height, weight) {

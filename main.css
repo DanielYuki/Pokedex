@@ -21,7 +21,7 @@ h1,h2,h3,h4,h5,h6{
 }
 
 main{
-    max-height: 80vh;
+    max-height: 90vh;
 }
 
 #searchPkm{
@@ -57,7 +57,7 @@ li:hover:not(.header){
     margin: 0;
     list-style-type: none;
 	width: 100%;
-	height: calc(75vh + 6px);
+	height: calc(80vh + 6px);
 	justify-content:space-evenly;
 	display: flex;
 	align-items: center;
@@ -66,6 +66,7 @@ li:hover:not(.header){
     color: rgb(19, 19, 19);
 }
 
+/* CARD CSS */
 .card{
     border: 10px;
     width: 45vw;
@@ -117,8 +118,9 @@ li:hover:not(.header){
     transform: perspective(600px) rotateY(0deg) translateY(-100%)
 }
 
+
 footer{
-    height: 10vh;
+    height: 5vh;
     width: 100vw;
     background-color: #0078ff;
     display: flex;
@@ -126,16 +128,15 @@ footer{
     align-items: center;
     position: absolute;
     bottom: 0;
-    overflow: hidden;
 }
 
 /* Pokeball Drawing */
 .o-pokeball {
     z-index: 5;
-    width: 75px;
-    height: 75px;
+    width: 50px;
+    height: 50px;
     border-radius: 100%;
-    border: solid 4px black;
+    border: solid 3px black;
     position: relative;
     bottom: 10px;
     background: -webkit-linear-gradient(top, #EEEEEE 0%, #FFFFFF 100%);
@@ -145,9 +146,9 @@ footer{
 .o-pokeball:before {
     content: "";
     display: block;
-    width: 75px;
-    height: 36px;
-    border-bottom: solid 4px black;
+    width: 50px;
+    height: 24px;
+    border-bottom: solid 3px black;
     border-radius: 50px 50px 0 0;
     background: -webkit-linear-gradient(top, #006de6 0%, #0078ff 50%);
     background: linear-gradient(to bottom, #006de6 0%, #0078ff 50%);
@@ -156,8 +157,8 @@ footer{
 .o-pokeball:after {
     content: "";
     display: block;
-    width: 10px;
-    height: 10px;
+    width: 5px;
+    height: 5px;
     background: -webkit-linear-gradient(top, #fff 0%, #ccc 100%);
     background: linear-gradient(to bottom, #fff 0%, #ccc 100%);
     position: absolute;
@@ -166,20 +167,12 @@ footer{
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     border-radius: 50%;
-    box-shadow: 0 0 0 3px black, 0 0 0 4px #ddd, 0 0 0 7.28571px black, 0 0 10px 5.76471px rgba(0, 0, 0, 0.4);
-}
-
-.o-pokeball:after {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+    box-shadow: 0 0 0 2px black, 0 0 0 4px #ddd, 0 0 0 7.28571px black, 0 0 10px 5.76471px rgba(0, 0, 0, 0.4);
 }
 
 .pkbDetail{
-    width: 105px;
-    height: 115px;
+    width: 75px;
+    height: 90px;
     border-radius: 50%;
     background-color: #0078ff;
     justify-content: center;
