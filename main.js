@@ -121,62 +121,215 @@ function pkmCreator(name, sprite, type, number, spriteBack, height, weight) {
         switch (typesDiv.innerHTML || typesDiv.textContent) {
             case 'normal':
                 typesDiv.classList.add('normalType')
+                if (createType.childElementCount == 1) {
+                    createCardBack.style.border = '2px solid #959588'
+                    createCardBack.style.backgroundColor = '#d6d6cc'
+                    createCardBack.style.boxShadow = 'inset 0px 0px 25px 3px #959588'
+                }
+                createCardFront.style.border = '2px solid #959588'
+                createCardFront.style.backgroundColor = '#d6d6cc'
+                createCardFront.style.boxShadow = 'inset 0px 0px 25px 3px #959588'
                 break;
             case "grass":
                 typesDiv.classList.add('grassType')
+                if (createType.childElementCount == 1) {
+                    createCardBack.style.border = '2px solid #71ad40'
+                    createCardBack.style.backgroundColor = '#bbe896'
+                    createCardBack.style.boxShadow = 'inset 0px 0px 25px 3px #71ad40'
+                }
+                createCardFront.style.border = '2px solid #71ad40'
+                createCardFront.style.backgroundColor = '#bbe896'
+                createCardFront.style.boxShadow = 'inset 0px 0px 25px 3px #71ad40'
+
                 break;
             case 'fire':
                 typesDiv.classList.add('fireType')
+                if (createType.childElementCount == 1) {
+                    createCardBack.style.border = '2px solid #c84434'
+                    createCardBack.style.backgroundColor = '#fc998d'
+                    createCardBack.style.boxShadow = 'inset 0px 0px 25px 3px #c84434'
+                }
+                createCardFront.style.border = '2px solid #c84434'
+                createCardFront.style.backgroundColor = '#fc998d'
+                createCardFront.style.boxShadow = 'inset 0px 0px 25px 3px #c84434'
                 break;
             case 'water':
                 typesDiv.classList.add('waterType')
+                if (createType.childElementCount == 1) {
+                    createCardBack.style.border = '2px solid #438bcc'
+                    createCardBack.style.backgroundColor = '#98ceff'
+                    createCardBack.style.boxShadow = 'inset 0px 0px 25px 3px #438bcc'
+                }
+                createCardFront.style.border = '2px solid #438bcc'
+                createCardFront.style.backgroundColor = '#98ceff'
+                createCardFront.style.boxShadow = 'inset 0px 0px 25px 3px #438bcc'
                 break;
             case 'fighting':
                 typesDiv.classList.add('fightningType')
+                if (createType.childElementCount == 1) {
+                    createCardBack.style.border = '2px solid #884434'
+                    createCardBack.style.backgroundColor = '#cc998d'
+                    createCardBack.style.boxShadow = 'inset 0px 0px 25px 3px #884434'
+                }
+                createCardFront.style.border = '2px solid #884434'
+                createCardFront.style.backgroundColor = '#cc998d'
+                createCardFront.style.boxShadow = 'inset 0px 0px 25px 3px #884434'
                 break;
             case 'flying':
                 typesDiv.classList.add('flyingType')
+                if (createType.childElementCount == 1) {
+                    createCardBack.style.border = '2px solid #5e83cc'
+                    createCardBack.style.backgroundColor = '#acc8ff'
+                    createCardBack.style.boxShadow = 'inset 0px 0px 25px 3px #5e83cc'
+                }
+                createCardFront.style.border = '2px solid #5e83cc'
+                createCardFront.style.backgroundColor = '#acc8ff'
+                createCardFront.style.boxShadow = 'inset 0px 0px 25px 3px #5e83cc'
                 break;
             case 'poison':
                 typesDiv.classList.add('poisonType')
+                if (createType.childElementCount == 1) {
+                    createCardBack.style.border = '2px solid #86487f'
+                    createCardBack.style.backgroundColor = '#ca9cc5'
+                    createCardBack.style.boxShadow = 'inset 0px 0px 25px 3px #86487f'
+                }
+                createCardFront.style.border = '2px solid #86487f'
+                createCardFront.style.backgroundColor = '#ca9cc5'
+                createCardFront.style.boxShadow = 'inset 0px 0px 25px 3px #86487f'
                 break;
             case 'ground':
                 typesDiv.classList.add('groundType')
+                if (createType.childElementCount == 1) {
+                    createCardBack.style.border = '2px solid #bba043'
+                    createCardBack.style.backgroundColor = '#f2de98'
+                    createCardBack.style.boxShadow = 'inset 0px 0px 25px 3px #bba043'
+                }
+                createCardFront.style.border = '2px solid #bba043'
+                createCardFront.style.backgroundColor = '#f2de98'
+                createCardFront.style.boxShadow = 'inset 0px 0px 25px 3px #bba043'
                 break;
             case 'rock':
                 typesDiv.classList.add('rockType')
+                if (createType.childElementCount == 1) {
+                    createCardBack.style.border = '2px solid #a4975a'
+                    createCardBack.style.backgroundColor = '#e1d7a9'
+                    createCardBack.style.boxShadow = 'inset 0px 0px 25px 3px #a4975a'
+                }
+                createCardFront.style.border = '2px solid #a4975a'
+                createCardFront.style.backgroundColor = '#e1d7a9'
+                createCardFront.style.boxShadow = 'inset 0px 0px 25px 3px #a4975a'
                 break;
             case 'bug':
                 typesDiv.classList.add('bugType')
+                if (createType.childElementCount == 1) {
+                    createCardBack.style.border = '2px solid #9ca814'
+                    createCardBack.style.backgroundColor = '#dbe475'
+                    createCardBack.style.boxShadow = 'inset 0px 0px 25px 3px #9ca814'
+                }
+                createCardFront.style.border = '2px solid #9ca814'
+                createCardFront.style.backgroundColor = '#dbe475'
+                createCardFront.style.boxShadow = 'inset 0px 0px 25px 3px #9ca814'
                 break;
             case 'ghost':
                 typesDiv.classList.add('ghostType')
+                if (createType.childElementCount == 1) {
+                    createCardBack.style.border = '2px solid #605caa'
+                    createCardBack.style.backgroundColor = '#aeabe5'
+                    createCardBack.style.boxShadow = 'inset 0px 0px 25px 3px #605caa'
+                }
+                createCardFront.style.border = '2px solid #605caa'
+                createCardFront.style.backgroundColor = '#aeabe5'
+                createCardFront.style.boxShadow = 'inset 0px 0px 25px 3px #605caa'
                 break;
             case 'electric':
                 typesDiv.classList.add('electricType')
+                if (createType.childElementCount == 1) {
+                    createCardBack.style.border = '2px solid #cab52c'
+                    createCardBack.style.backgroundColor = '#fdee87'
+                    createCardBack.style.boxShadow = 'inset 0px 0px 25px 3px #cab52c'
+                }
+                createCardFront.style.border = '2px solid #cab52c'
+                createCardFront.style.backgroundColor = '#fdee87'
+                createCardFront.style.boxShadow = 'inset 0px 0px 25px 3px #cab52c'
                 break;
             case 'psychic':
                 typesDiv.classList.add('psychicType')
+                if (createType.childElementCount == 1) {
+                    createCardBack.style.border = '2px solid #c34d8e'
+                    createCardBack.style.backgroundColor = '#f8a0d0'
+                    createCardBack.style.boxShadow = 'inset 0px 0px 25px 3px #c34d8e'
+                }
+                createCardFront.style.border = '2px solid #c34d8e'
+                createCardFront.style.backgroundColor = '#f8a0d0'
+                createCardFront.style.boxShadow = 'inset 0px 0px 25px 3px #c34d8e'
                 break;
             case 'ice':
                 typesDiv.classList.add('iceType')
+                if (createType.childElementCount == 1) {
+                    createCardBack.style.border = '2px solid #78c1cc'
+                    createCardBack.style.backgroundColor = '#c0f7ff'
+                    createCardBack.style.boxShadow = 'inset 0px 0px 25px 3px #78c1cc'
+                }
+                createCardFront.style.border = '2px solid #78c1cc'
+                createCardFront.style.backgroundColor = '#c0f7ff'
+                createCardFront.style.boxShadow = 'inset 0px 0px 25px 3px #78c1cc'
                 break;
             case 'dragon':
                 typesDiv.classList.add('dragonType')
+                if (createType.childElementCount == 1) {
+                    createCardBack.style.border = '2px solid #6c5ccc'
+                    createCardBack.style.backgroundColor = '#b7abff'
+                    createCardBack.style.boxShadow = 'inset 0px 0px 25px 3px #6c5ccc'
+                }
+                createCardFront.style.border = '2px solid #6c5ccc'
+                createCardFront.style.backgroundColor = '#b7abff'
+                createCardFront.style.boxShadow = 'inset 0px 0px 25px 3px #6c5ccc'
                 break;
             case 'dark':
                 typesDiv.classList.add('darkType')
+                if (createType.childElementCount == 1) {
+                    createCardBack.style.border = '2px solid #684b3c'
+                    createCardBack.style.backgroundColor = '#b49e93'
+                    createCardBack.style.boxShadow = 'inset 0px 0px 25px 3px #684b3c'
+                }
+                createCardFront.style.border = '2px solid #684b3c'
+                createCardFront.style.backgroundColor = '#b49e93'
+                createCardFront.style.boxShadow = 'inset 0px 0px 25px 3px #684b3c'
                 break;
             case 'steel':
                 typesDiv.classList.add('steelType')
+                if (createType.childElementCount == 1) {
+                    createCardBack.style.border = '2px solid #9d9cb0'
+                    createCardBack.style.backgroundColor = '#dcdbea'
+                    createCardBack.style.boxShadow = 'inset 0px 0px 25px 3px #9d9cb0'
+                }
+                createCardFront.style.border = '2px solid #9d9cb0'
+                createCardFront.style.backgroundColor = '#dcdbea'
+                createCardFront.style.boxShadow = 'inset 0px 0px 25px 3px #9d9cb0'
                 break;
             case 'fairy':
                 typesDiv.classList.add('fairyType')
+                if (createType.childElementCount == 1) {
+                    createCardBack.style.border = '2px solid #c78ccc'
+                    createCardBack.style.backgroundColor = '#fbcfff'
+                    createCardBack.style.boxShadow = 'inset 0px 0px 25px 3px #c78ccc'
+                }
+                createCardFront.style.border = '2px solid #c78ccc'
+                createCardFront.style.backgroundColor = '#fbcfff'
+                createCardFront.style.boxShadow = 'inset 0px 0px 25px 3px #c78ccc'
                 break;
             default:
                 console.log('isodiasod')
         }
     }
+
+    console.log(createType.childElementCount)
+    // if(createType.childElementCount == 1){
+    //     createCardFront.style.border = 'solid 1.5px black'
+    // }else{
+    //     console.log('menos')
+    // }
+
 
     // GATHERING CONTENTS
     createName.appendChild(nameContent);
