@@ -62,7 +62,8 @@ li:hover:not(.header){
 	display: flex;
 	align-items: center;
     flex-wrap: wrap;
-    overflow: scroll;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
     color: rgb(19, 19, 19);
 }
 
