@@ -109,14 +109,86 @@ li:hover:not(.header){
     -webkit-transform: perspective(600px) rotateY(180deg) translateY(-100%);
 }
 
+/* flip animation */
 .frontFlip{
     -webkit-transform: perspective(600px) rotateY(-180deg);
     transform: perspective(600px) rotateY(-180deg);
 }
-
 .backFlip{
     -webkit-transform: perspective(600px) rotateY(0deg) translateY(-100%);
     transform: perspective(600px) rotateY(0deg) translateY(-100%)
+}
+
+.pokemonTypes{
+    width: 90%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.pokemonTypes > h6{
+    width: 45%;
+    text-align: center;
+    padding: 2px 0;
+    border-radius: 20px;
+    border: 1px solid black;
+    color: white;
+    text-shadow: 1px 2px 0px rgba(0, 16, 0, 0.5);
+}
+
+.normalType{
+    background-color: #BCBCAC;
+}
+.grassType{
+    background-color: #8ED950;
+}
+.fireType{
+    background-color: #FA5541;
+}
+.waterType{
+    background-color: #55AFFF;
+}
+.fightningType{
+    background-color: #A95541;
+}
+.flyingType{
+    background-color: #77A4FF;
+}
+.poisonType{
+    background-color: #A85AA0;
+}
+.groundType{
+    background-color: #ECCB55;
+}
+.rockType{
+    background-color: #CCBC71;
+}
+.bugType{
+    background-color: #C4D319;
+}
+.ghostType{
+    background-color: #7874D7;
+}
+.electricType{
+    background-color: #FDE438;
+}
+.psychicType{
+    background-color: #F662B4;
+}
+.iceType{
+    background-color: #97F2FF;
+}
+.dragonType{
+    background-color: #8673FF;
+}
+.darkType{
+    background-color: #8F6955;
+}
+.steelType{
+    background-color: #C4C2DB;
+}
+.fairyType{
+    background-color: #F9AFFF;
 }
 
 

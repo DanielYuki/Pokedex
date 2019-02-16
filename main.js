@@ -45,7 +45,7 @@ const mainUrl = 'https://pokeapi.co/api/v2/pokemon/';
 let pokemon = '';
 let number = 1
 
-let until = 120
+let until = 110
 async function getPoke(mainUrl, pokemon, number) {
     while (until < 150) {
         pokemon = searchInput.value.toLowerCase()
@@ -88,7 +88,7 @@ function pkmCreator(name, sprite, type, number, spriteBack, height, weight) {
     // CARD FRONT
     let createSprite = document.createElement('div');
     let createName = document.createElement('h4');
-    let createType = document.createElement('h6');
+    let createType = document.createElement('div');
 
     //CARD BACK
     let createSpriteBack = document.createElement('div');
@@ -114,9 +114,68 @@ function pkmCreator(name, sprite, type, number, spriteBack, height, weight) {
     // POKEMON TYPE CONSTRUCTOR
     for (let i = 0; i < type.length; i++) {
         let typeContent = document.createTextNode(`${type[i]}`);
-        let typesDiv = document.createElement('div');
+        let typesDiv = document.createElement('h6');
         typesDiv.appendChild(typeContent);
         createType.appendChild(typesDiv);
+
+        switch (typesDiv.innerHTML || typesDiv.textContent) {
+            case 'normal':
+                typesDiv.classList.add('normalType')
+                break;
+            case "grass":
+                typesDiv.classList.add('grassType')
+                break;
+            case 'fire':
+                typesDiv.classList.add('fireType')
+                break;
+            case 'water':
+                typesDiv.classList.add('waterType')
+                break;
+            case 'fighting':
+                typesDiv.classList.add('fightningType')
+                break;
+            case 'flying':
+                typesDiv.classList.add('flyingType')
+                break;
+            case 'poison':
+                typesDiv.classList.add('poisonType')
+                break;
+            case 'ground':
+                typesDiv.classList.add('groundType')
+                break;
+            case 'rock':
+                typesDiv.classList.add('rockType')
+                break;
+            case 'bug':
+                typesDiv.classList.add('bugType')
+                break;
+            case 'ghost':
+                typesDiv.classList.add('ghostType')
+                break;
+            case 'electric':
+                typesDiv.classList.add('electricType')
+                break;
+            case 'psychic':
+                typesDiv.classList.add('psychicType')
+                break;
+            case 'ice':
+                typesDiv.classList.add('iceType')
+                break;
+            case 'dragon':
+                typesDiv.classList.add('dragonType')
+                break;
+            case 'dark':
+                typesDiv.classList.add('darkType')
+                break;
+            case 'steel':
+                typesDiv.classList.add('steelType')
+                break;
+            case 'fairy':
+                typesDiv.classList.add('fairyType')
+                break;
+            default:
+                console.log('isodiasod')
+        }
     }
 
     // GATHERING CONTENTS
