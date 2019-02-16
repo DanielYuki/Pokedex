@@ -45,13 +45,13 @@ const mainUrl = 'https://pokeapi.co/api/v2/pokemon/';
 let pokemon = '';
 let number = 1
 
-let until = 110
-async function getPoke(mainUrl, pokemon, number) {
-    while (until < 150) {
+let until = 1
+async function getPoke(mainUrl, number) {
+    while (until < 152) {
         pokemon = searchInput.value.toLowerCase()
-        console.log('Loading...');
+
         try {
-            let waitPoke = await fetch(`${mainUrl}${pokemon}${number}`)
+            let waitPoke = await fetch(`${mainUrl}${number}`)
             let pokeReady = await waitPoke.json();
 
             let pokemonName = pokeReady.name;
@@ -74,7 +74,7 @@ async function getPoke(mainUrl, pokemon, number) {
         }
         number++
         until++
-        await getPoke(mainUrl, pokemon, number)
+        await getPoke(mainUrl, number)
     }
 }
 // ------------------------
@@ -118,6 +118,7 @@ function pkmCreator(name, sprite, type, number, spriteBack, height, weight) {
         typesDiv.appendChild(typeContent);
         createType.appendChild(typesDiv);
 
+        //CSS Details...
         switch (typesDiv.innerHTML || typesDiv.textContent) {
             case 'normal':
                 typesDiv.classList.add('normalType')
@@ -140,7 +141,6 @@ function pkmCreator(name, sprite, type, number, spriteBack, height, weight) {
                 createCardFront.style.border = '2px solid #71ad40'
                 createCardFront.style.backgroundColor = '#bbe896'
                 createCardFront.style.boxShadow = 'inset 0px 0px 25px 3px #71ad40'
-
                 break;
             case 'fire':
                 typesDiv.classList.add('fireType')
@@ -319,17 +319,9 @@ function pkmCreator(name, sprite, type, number, spriteBack, height, weight) {
                 createCardFront.style.boxShadow = 'inset 0px 0px 25px 3px #c78ccc'
                 break;
             default:
-                console.log('isodiasod')
+                console.error(error)
         }
     }
-
-    console.log(createType.childElementCount)
-    // if(createType.childElementCount == 1){
-    //     createCardFront.style.border = 'solid 1.5px black'
-    // }else{
-    //     console.log('menos')
-    // }
-
 
     // GATHERING CONTENTS
     createName.appendChild(nameContent);
@@ -373,11 +365,9 @@ function flip() {
     this.lastChild.previousSibling.classList.toggle('frontFlip')
 }
 
-// for (let i = 1; i < 18; i++) {
-//     getPoke(mainUrl, pokemon, i)
-// }
-
 getPoke(mainUrl, pokemon, number)
+
+
 
 // Detects if device is on iOS 
 const isIos = () => {

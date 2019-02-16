@@ -1,6 +1,6 @@
 {
-  "name": "Pokedex WebApp",
-  "short_name": "Pokedex App",
+  "name": "SimpleDex Pokemon",
+  "short_name": "SimpleDex",
   "description": "Pokedex WebApp Using the PokeDev API",
   "icons": [
     {
