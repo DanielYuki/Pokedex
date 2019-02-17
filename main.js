@@ -83,8 +83,13 @@ function pkmCreator(name, sprite, type, number, spriteBack, height, weight) {
     //CARD BACK
     let createSpriteBack = document.createElement('div');
     let createPkmNumber = document.createElement('span');
-    let createPkmHeight = document.createElement('div');
-    let createPkmWeight = document.createElement('div');
+    let createPkmHeightValue = document.createElement('div');
+    let createPkmWeightValue = document.createElement('div');
+        //details
+    let createPkmHeight = document.createElement('b');
+    createPkmHeight.innerText = 'Height: '
+    let createPkmWeight = document.createElement('b');
+    createPkmWeight.innerText = 'Weight: '
 
     // ADDING CLASSES TO THE CARD ELEMENTS
     createCard.classList.add('card');
@@ -97,9 +102,9 @@ function pkmCreator(name, sprite, type, number, spriteBack, height, weight) {
 
     // ADDING CONTENT INFO
     let nameContent = document.createTextNode(`${name}`);
-    let pkmNumberContent = document.createTextNode(`# ${number}`);
-    let pkmHeightContent = document.createTextNode(`Height: ${height}m`);
-    let pkmWeightContent = document.createTextNode(`Weight: ${weight}kg`);
+    let pkmNumberContent = document.createTextNode(`#${number}`);
+    let pkmHeightContent = document.createTextNode(`${height}m`);
+    let pkmWeightContent = document.createTextNode(`${weight}kg`);
 
     // POKEMON TYPE CONSTRUCTOR
     for (let i = 0; i < type.length; i++) {
@@ -316,8 +321,10 @@ function pkmCreator(name, sprite, type, number, spriteBack, height, weight) {
     // GATHERING CONTENTS
     createName.appendChild(nameContent);
     createPkmNumber.appendChild(pkmNumberContent);
-    createPkmHeight.appendChild(pkmHeightContent);
-    createPkmWeight.appendChild(pkmWeightContent);
+    createPkmHeightValue.appendChild(createPkmHeight);
+    createPkmHeightValue.appendChild(pkmHeightContent);
+    createPkmWeightValue.appendChild(createPkmWeight);
+    createPkmWeightValue.appendChild(pkmWeightContent);
 
     // CARD FRONT
     createCardFront.appendChild(createSprite);
@@ -327,8 +334,8 @@ function pkmCreator(name, sprite, type, number, spriteBack, height, weight) {
     // CARD BACK
     createCardBack.appendChild(createSpriteBack);
     createCardBack.appendChild(createPkmNumber);
-    createCardBack.appendChild(createPkmHeight);
-    createCardBack.appendChild(createPkmWeight);
+    createCardBack.appendChild(createPkmHeightValue);
+    createCardBack.appendChild(createPkmWeightValue);
 
 
     createCard.appendChild(createCardFront)

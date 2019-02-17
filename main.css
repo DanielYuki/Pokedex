@@ -99,6 +99,17 @@ main{
     transform: perspective(600px) rotateY(0deg) translateY(-100%)
 }
 
+.back > div{
+    font-size: 16pt;
+}
+
+div > span{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-weight: bold;
+}
+
 .pokemonTypes{
     width: 90%;
     display: flex;
