@@ -21,7 +21,7 @@ h1,h2,h3,h4,h5,h6{
 }
 
 main{
-    max-height: 90vh;
+    height: 90vh;
 }
 
 #searchPkm{
@@ -32,32 +32,12 @@ main{
     margin-bottom: 6px; 
 }
 
-/* li{
-    border: 1px solid #ddd; 
-    margin-top: -1px; 
-    padding: 14px;
-    text-decoration: none; 
-    font-size: 18px; 
-    color: black; 
-    justify-content: space-between;
-    display: flex;
-    flex-direction: row-reverse;
-}
-
-li:nth-child(even){
-    background-color: #f6f6f6;
-}
-
-li:hover:not(.header){
-    background-color: #eee;
-} */
-
 #pkmList{
     padding: 0;
     margin: 0;
     list-style-type: none;
 	width: 100%;
-	height: calc(80vh + 6px);
+	height: calc(80vh + 8px);
 	justify-content:space-evenly;
 	display: flex;
 	align-items: center;
@@ -199,10 +179,11 @@ footer{
     width: 100vw;
     background-color: #0078ff;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
-    position: absolute;
-    bottom: 0;
+    z-index: 3;
+    /* position: absolute;
+    bottom: 0; */
 }
 
 /* Pokeball Drawing */
@@ -246,13 +227,14 @@ footer{
 }
 
 .pkbDetail{
-    width: 75px;
+    width: 70px;
     height: 90px;
-    border-radius: 50%;
+    border-radius: 50px 50px 0 0;
     background-color: #0078ff;
     justify-content: center;
     display: flex;
     align-items: center;
+    z-index: 3;
 }
 
 /* IOS MODAL ONLY */
