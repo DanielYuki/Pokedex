@@ -39,7 +39,7 @@ let pokemon = '';
 let number = 1
 
 async function getPoke(mainUrl, number) {
-    while (number <= gen1 && number <= 20) {
+    while (number <= gen1) {
         pokemon = searchInput.value.toLowerCase()
 
         try {
@@ -78,11 +78,13 @@ function pkmCreator(name, sprite, type, number, spriteBack, height, weight) {
     // CARD FRONT
     let createSprite = document.createElement('div');
     let createName = document.createElement('h4');
+    createName.innerText = (`${name}`)
     let createType = document.createElement('div');
 
     //CARD BACK
     let createSpriteBack = document.createElement('div');
     let createPkmNumber = document.createElement('span');
+    createPkmNumber.innerText = (`#${number}`);
     let createPkmHeightValue = document.createElement('div');
     let createPkmWeightValue = document.createElement('div');
         //details
@@ -101,8 +103,6 @@ function pkmCreator(name, sprite, type, number, spriteBack, height, weight) {
     createType.classList.add('pokemonTypes')
 
     // ADDING CONTENT INFO
-    let nameContent = document.createTextNode(`${name}`);
-    let pkmNumberContent = document.createTextNode(`#${number}`);
     let pkmHeightContent = document.createTextNode(`${height}m`);
     let pkmWeightContent = document.createTextNode(`${weight}kg`);
 
@@ -319,8 +319,6 @@ function pkmCreator(name, sprite, type, number, spriteBack, height, weight) {
     }
 
     // GATHERING CONTENTS
-    createName.appendChild(nameContent);
-    createPkmNumber.appendChild(pkmNumberContent);
     createPkmHeightValue.appendChild(createPkmHeight);
     createPkmHeightValue.appendChild(pkmHeightContent);
     createPkmWeightValue.appendChild(createPkmWeight);

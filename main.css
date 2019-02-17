@@ -24,12 +24,50 @@ main{
     height: 90vh;
 }
 
+section{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 7.5vh;
+    border-bottom: 0.5px solid rgba(128, 128, 128, 0.425);
+}
+
+button {
+    border: 0;
+    padding: 0;
+    height: 100%;
+    width: 7.5vh;
+    cursor: pointer;
+    background-color: white;
+}
+
+aside {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100vw;
+    height: 45vh;
+    border-radius: 0 0 20px 20px;
+    background-color: white;
+    position: absolute;
+    transform: translateY(-70%)
+}
+
+aside > h6 {
+    width: 30%;
+    border: 2px solid black;
+    max-width: 150px;
+    margin: 5px 0;
+    font-size: 16pt;
+}
+
 #searchPkm{
-    width: calc(100% - 7px); 
+    width: calc(100vw - 7.5vh); 
     font-size: 20pt; 
-    padding: 10px 0px 10px 5px;
-    border: 1px solid #ddd; 
-    margin-bottom: 6px; 
+    border: 0;
+    height: 100%;
+    padding: 0 0 0 5px;
 }
 
 #pkmList{
@@ -37,7 +75,7 @@ main{
     margin: 0;
     list-style-type: none;
 	width: 100%;
-	height: calc(80vh + 8px);
+	height: 82.5vh;
 	justify-content:space-evenly;
 	display: flex;
 	align-items: center;
@@ -49,10 +87,9 @@ main{
 
 /* CARD CSS */
 .card{
-    border: 10px;
     width: 45vw;
     height: 55vw;
-    margin: 10px 0px;
+    margin: 7.5px 0px;
     border-radius: 10px;
 }
 
@@ -118,7 +155,7 @@ div > span{
     flex-direction: row-reverse;
 }
 
-.pokemonTypes > h6{
+h6{
     width: 45%;
     text-align: center;
     padding: 2px 0;

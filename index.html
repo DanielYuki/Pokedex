@@ -66,19 +66,39 @@
 
 <body>
     <div id="container">
-        <header>
-            <!-- <h1>Pokédex</h1> -->
-        </header>
+        <header></header>
         <main>
-            <input id="searchPkm" onkeyup="filterFunction()" type="text" placeholder="Search Pokemon">
+            <section>
+                <input id="searchPkm" onkeyup="filterFunction()" type="text" placeholder="Search Pokemon">
+                <button><i class="fas fa-angle-down"></i></button>
+            </section>
+            <!-- <aside>
+                <h6 class="normalType">Normal</h6>
+                <h6 class="grassType">Grass</h6>
+                <h6 class="fireType">Fire</h6>
+                <h6 class="waterType">Water</h6>
+                <h6 class="fightningType">Fighting</h6>
+                <h6 class="flyingType">Flying</h6>
+                <h6 class="poisonType">Poison</h6>
+                <h6 class="groundType">Ground</h6>
+                <h6 class="bugType">Bug</h6>
+                <h6 class="ghostType">Ghost</h6>
+                <h6 class="electricType">Electric</h6>
+                <h6 class="psychicType">Psychic</h6>
+                <h6 class="iceType">Ice</h6>
+                <h6 class="dragonType">Dragon</h6>
+                <h6 class="darkType">Dark</h6>
+                <h6 class="steelType">Steel</h6>
+                <h6 class="fairyType">Fairy</h6>
+            </aside> -->
             <ul id="pkmList"></ul>
-
         </main>
         <footer>
             <div class="pkbDetail">
                 <div class="o-pokeball"></div>
             </div>
         </footer>
+
         <!-- MODAL POPUP, VISIBLE ONLY FOR IOS USERS -->
         <div class="iosAlertBoxWebApp">
             <div class="actualContent">
