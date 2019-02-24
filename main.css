@@ -107,10 +107,16 @@ aside > h6 {
 
 /* CARD CSS */
 .card{
+    /* width: 45vw;
+    height: 52.5vw; */
+    max-width: 170px;
     width: 45vw;
-    height: 52.5vw;
-    margin: 6.5px 0px;
+    max-height: 200px;
+    height: 55vw;
+    margin: 6.5px 5px;
     border-radius: 10px;
+
+    cursor: pointer;
 }
 
 .card div,span:first-letter {
@@ -135,13 +141,13 @@ aside > h6 {
 }
 
 .front{
-    font-size: 7vw;
+    font-size: 20pt;
     transform: perspective(600px) rotateY(0deg);
     -webkit-transform: perspective(600px) rotateY(0deg);
 }
 
 .back{
-    font-size: 6.5vw;
+    font-size: 18pt;
     transform: perspective(600px) rotateY(180deg) translateY(-100%);
     -webkit-transform: perspective(600px) rotateY(180deg) translateY(-100%);
 }

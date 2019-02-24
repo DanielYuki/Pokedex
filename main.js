@@ -405,6 +405,20 @@ function flip() {
     this.lastChild.previousSibling.classList.toggle('frontFlip')
 }
 
+function cardsExist() {
+    let cards = document.getElementsByTagName('li')
+    let allCards = 151;
+    for (let i = 0; i < cards.length; i++) {
+        if (cards[i].style.display == 'none') {
+            allCards--
+        }
+        console.log(allCards)
+        if (allCards == 0) {
+            console.log('noCards')
+        }
+    }
+}
+
 getPoke(mainUrl, number)
 
 
