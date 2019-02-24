@@ -108,8 +108,8 @@ aside > h6 {
 /* CARD CSS */
 .card{
     width: 45vw;
-    height: 55vw;
-    margin: 7.5px 0px;
+    height: 52.5vw;
+    margin: 6.5px 0px;
     border-radius: 10px;
 }
 
@@ -119,7 +119,7 @@ aside > h6 {
 
 .front, .back{
     /* box-shadow: 5px 5px 20px -8px rgba(0,0,0,0.51); */
-    border-radius: 10px;
+    border-radius: 15px;
     /* background-color: white; */
     width: 100%;
     height: 100%;
@@ -141,7 +141,7 @@ aside > h6 {
 }
 
 .back{
-    font-size: 7vw;
+    font-size: 6.5vw;
     transform: perspective(600px) rotateY(180deg) translateY(-100%);
     -webkit-transform: perspective(600px) rotateY(180deg) translateY(-100%);
 }
@@ -162,9 +162,18 @@ aside > h6 {
 
 div > span{
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 5px;
+    right: 5px;
     font-weight: bold;
+}
+
+img{
+    background-color: rgba(255, 255, 255, 0.103);
+
+    box-shadow: 3px 3px 15px -8px rgba(0,0,0,0.51);
+    /* box-shadow: rgb(113, 173, 64) 0px 0px 25px 3px; */
+    /* box-shadow: 0px 0px 25px 3px rgba(0,0,0,0.5); */
+    border-radius: 50%;
 }
 
 .pokemonTypes{
@@ -176,7 +185,8 @@ div > span{
 }
 
 h6{
-    width: 45%;
+    font-size: 0.65em;
+    width: 46%;
     text-align: center;
     padding: 2px 0;
     border-radius: 20px;

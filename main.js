@@ -36,42 +36,14 @@ function filterThisType() {
 
     for (let i = 0; i < card.length; i++) {
         cardTypeValue = type[i].textContent;
-        cardTypeValue = cardTypeValue.replace('poisongrass', 'grass')
-            .replace('flyingfire', 'fire')
-            .replace('flyingbug', 'bug')
-            .replace('poisonbug', 'bug')
-            .replace('flyingnormal', 'flying')
-            .replace('groundpoison', 'poison')
-            .replace('fightingwater', 'water')
-            .replace('fairynormal', 'fairy')
-            .replace('flyingpoison', 'poison')
-            .replace('grassbug', 'bug')
-            .replace('waterrock', 'rock')
-            .replace('flyingdragon', 'dragon')
-            .replace('flyingrock', 'rock')
-            .replace('poisonwater', 'water')
-            .replace('groundrock', 'rock')
-            .replace('psychicwater', 'water')
-            .replace('steelelectric', 'steel')
-            .replace('icewater', 'ice')
-            .replace('poisonghost', 'ghost')
-            .replace('psychicgrass', 'grass')
-            .replace('rockground', 'ground')
-            .replace('fairypsychic', 'fairy')
-            .replace('psychicice', 'ice')
-            .replace('flyingwater', 'water')
-            .replace('flyingice', 'ice')
-            .replace('flyingelectric', 'electric')
+        cardTypeValue = cardTypeValue.replace('poisongrass', 'grass').replace('flyingfire', 'fire').replace('flyingbug', 'bug').replace('poisonbug', 'bug').replace('flyingnormal', 'flying').replace('groundpoison', 'poison').replace('fightingwater', 'water').replace('fairynormal', 'fairy').replace('flyingpoison', 'poison').replace('grassbug', 'bug').replace('waterrock', 'rock').replace('flyingdragon', 'dragon').replace('flyingrock', 'rock').replace('poisonwater', 'water').replace('groundrock', 'rock').replace('psychicwater', 'water').replace('steelelectric', 'steel').replace('icewater', 'ice').replace('poisonghost', 'ghost').replace('psychicgrass', 'grass').replace('rockground', 'ground').replace('fairypsychic', 'fairy').replace('psychicice', 'ice').replace('flyingwater', 'water').replace('flyingice', 'ice').replace('flyingelectric', 'electric')
 
         if (filter.indexOf(cardTypeValue) > -1) {
             card[i].style.display = "";
         } else {
             card[i].style.display = "none";
         }
-        // console.log(filter.indexOf(cardTypeValue))
         console.log(cardTypeValue)
-        // console.log(type[i])
-
     }
     this.classList.toggle('grayScaleFiltering');
 }
