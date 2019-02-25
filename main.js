@@ -75,6 +75,7 @@ function filterFunction() {
         }
         console.log(filter)
     }
+    cardsExist()
 }
 
 // GET POKEMON INFORMATION
@@ -408,13 +409,15 @@ function flip() {
 function cardsExist() {
     let cards = document.getElementsByTagName('li')
     let allCards = 151;
+    let showInfo = document.querySelector('.nothing');
     for (let i = 0; i < cards.length; i++) {
+        showInfo.style.display = 'none'
         if (cards[i].style.display == 'none') {
             allCards--
         }
-        console.log(allCards)
         if (allCards == 0) {
-            console.log('noCards')
+            // console.log('noCards')
+            showInfo.style.display = 'flex'
         }
     }
 }
