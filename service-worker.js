@@ -1,5 +1,5 @@
 // CACHE NAME
-let cacheName = 'pokedex-v3';
+let cacheName = 'pokedex-v4';
 
 // CACHE FILES
 let filesToCache = [

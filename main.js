@@ -14,7 +14,6 @@ let allPkmTypes = ['normal', 'grass', 'fire', 'water', 'fighting', 'flying', 'po
 
 let typeFiltering = document.querySelectorAll('.typeFiltering');
 for (types of typeFiltering) {
-    // types.classList.add('grayScaleFiltering')
     types.onclick = filterThisType;
 }
 
@@ -46,6 +45,7 @@ function filterThisType() {
         console.log(cardTypeValue)
     }
     this.classList.toggle('grayScaleFiltering');
+    cardsExist()
 }
 
 // const allGen1Pkm = ['Bulbasaur', 'Ivysaur', 'Venusaur', 'Charmander', 'Charmeleon', 'Charizard', 'Squirtle', 'Wartortle', 'Blastoise', 'Caterpie', 'Metapod', 'Butterfree', 'Weedle', 'Kakuna', 'Beedrill', 'Pidgey', 'Pidgeotto', 'Pidgeot', 'Rattata', 'Raticate', 'Spearow', 'Fearow', 'Ekans', 'Arbok', 'Pikachu', 'Raichu', 'Sandshrew', 'Sandslash', 'Nidoran♀', 'Nidorina', 'Nidoqueen', 'Nidoran♂', 'Nidorino', 'Nidoking', 'Clefairy', 'Clefable', 'Vulpix', 'Ninetales', 'Jigglypuff', 'Wigglytuff', 'Zubat', 'Golbat', 'Oddish', 'Gloom', 'Vileplume', 'Paras', 'Parasect', 'Venonat', 'Venomoth', 'Diglett', 'Dugtrio', 'Meowth', 'Persian', 'Psyduck', 'Golduck', 'Mankey', 'Primeape', 'Growlithe', 'Arcanine', 'Poliwag', 'Poliwhirl', 'Poliwrath', 'Abra', 'Kadabra', 'Alakazam', 'Machop', 'Machoke', 'Machamp', 'Bellsprout', 'Weepinbell', 'Victreebel', 'Tentacool', 'Tentacruel', 'Geodude', 'Graveler', 'Golem', 'Ponyta', 'Rapidash', 'Slowpoke', 'Slowbro', 'Magnemite', 'Magneton', "Farfetch'd", 'Doduo', 'Dodrio', 'Seel', 'Dewgong', 'Grimer', 'Muk', 'Shellder', 'Cloyster', 'Gastly', 'Haunter', 'Gengar', 'Onix', 'Drowzee', 'Hypno', 'Krabby', 'Kingler', 'Voltorb', 'Electrode', 'Exeggcute', 'Exeggutor', 'Cubone', 'Marowak', 'Hitmonlee', 'Hitmonchan', 'Lickitung', 'Koffing', 'Weezing', 'Rhyhorn', 'Rhydon', 'Chansey', 'Tangela', 'Kangaskhan', 'Horsea', 'Seadra', 'Goldeen', 'Seaking', 'Staryu', 'Starmie', 'Mr.Mime', 'Scyther', 'Jynx', 'Electabuzz', 'Magmar', 'Pinsir', 'Tauros', 'Magikarp', 'Gyarados', 'Lapras', 'Ditto', 'Eevee', 'Vaporeon', 'Jolteon', 'Flareon', 'Porygon', 'Omanyte', 'Omastar', 'Kabuto', 'Kabutops', 'Aerodactyl', 'Snorlax', 'Articuno', 'Zapdos', 'Moltres', 'Dratini', 'Dragonair', 'Dragonite', 'Mewtwo', 'Mew'];
@@ -73,7 +73,6 @@ function filterFunction() {
         } else {
             li[i].style.display = "none";
         }
-        console.log(filter)
     }
     cardsExist()
 }
@@ -85,9 +84,11 @@ let pokemon = '';
 let number = 1
 
 async function getPoke(mainUrl, number) {
+    let generating = document.querySelector('.loadingPkm');
+    let generatingMsg = document.querySelector('.ongoing');
+    let generatingMsgReady = document.querySelector('.ready');
+    let pkballAnimation = document.querySelector('.o-pokeball')
     while (number <= gen1) {
-        pokemon = searchInput.value.toLowerCase()
-
         try {
             let waitPoke = await fetch(`${mainUrl}${number}`)
             let pokeReady = await waitPoke.json();
@@ -104,14 +105,22 @@ async function getPoke(mainUrl, number) {
                     pokemonType.push(pokeReady.types[i].type.name)
                 }
             }
-
             // console.log(pokeReady);
             pkmCreator(pokemonName, pokemonSprite, pokemonType, number, pokemonSpriteBack, pokemonHeight, pokemonWeight)
         } catch (error) {
             console.error(error);
         }
         number++
+
+        pkballAnimation.style.animation = 'pkbrotate 5s ease-in-out infinite';
+        generating.style.display = 'flex';
     }
+
+    setTimeout(timeOutModal = () => { generating.style.display = 'none' }, 6500)
+    generatingMsg.style.display = 'none';
+    generatingMsgReady.style.display = 'flex';
+    generating.style.animation = 'allGenerated 7s ease-in-out 1'
+    pkballAnimation.style.animation = 'pkbrotate 5s ease-in-out 1';
 }
 // ------------------------
 
