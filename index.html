@@ -9,10 +9,6 @@
     <meta name="Description"
         content="Pokedex WebApp in PWA, developed by: Daniel Yuki(AKA DYuki) just 4fun and self improvement">
 
-    <!-- FONT AWESOME -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
-        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-
     <!-- Manifest -->
     <link rel="manifest" href="manifest.json">
 
@@ -59,6 +55,9 @@
         media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3)"
         rel="apple-touch-startup-image" />
 
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
     <script src="main.js" defer></script>
 
@@ -69,8 +68,9 @@
         <header></header>
         <main>
             <section>
+                <label for="searchPkm" class="visuallyhidden">searchPkm</label>
                 <input id="searchPkm" onkeyup="filterFunction()" type="text" placeholder="Search Pokemon">
-                <button id="showTypeFilter"><i id="arrowBtn" class="fas fa-angle-down fa-2x"></i></button>
+                <button aria-label="Show Types" id="showTypeFilter"><i id="arrowBtn" class="fas fa-angle-down fa-2x"></i></button>
             </section>
             <aside id="types">
                 <h6 class="typeFiltering normalType">Normal</h6>

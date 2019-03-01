@@ -81,6 +81,17 @@ aside > h6 {
     opacity: 0.7;
 }
 
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}  
+
 #searchPkm{
     width: calc(100vw - 7.5vh); 
     font-size: 20pt; 
@@ -228,55 +239,67 @@ h6{
 
 /* POKEMON TYPES */
 .normalType{
-    background-color: #BCBCAC;
+    /* background-color: #BCBCAC; */
+    background-color: #949494;
 }
 .grassType{
-    background-color: #8ED950;
+    /* background-color: #8ED950; */
+    background-color: #6EC52B;
 }
 .fireType{
-    background-color: #FA5541;
+    /* background-color: #FA5541; */
+    background-color: #E62005;
 }
 .waterType{
-    background-color: #55AFFF;
+    /* background-color: #55AFFF; */
+    background-color: #0076DB;
 }
 .fightningType{
     background-color: #A95541;
 }
 .flyingType{
-    background-color: #77A4FF;
+    /* background-color: #77A4FF; */
+    background-color: #5C90FF;
 }
 .poisonType{
-    background-color: #A85AA0;
+    /* background-color: #A85AA0; */
+    background-color: #82407B;
 }
 .groundType{
     background-color: #ECCB55;
 }
 .rockType{
-    background-color: #CCBC71;
+    /* background-color: #CCBC71; */
+    background-color: #A7903A;
 }
 .bugType{
     background-color: #C4D319;
 }
 .ghostType{
-    background-color: #7874D7;
+    /* background-color: #7874D7; */
+    background-color: #6D68D4;
 }
 .electricType{
     background-color: #FDE438;
 }
 .psychicType{
-    background-color: #F662B4;
+    /* background-color: #F662B4; */
+    background-color: #F557B0;
 }
 .iceType{
     background-color: #97F2FF;
 }
 .dragonType{
-    background-color: #8673FF;
+    /* background-color: #8673FF; */
+    background-color: #6D5CFF;
 }
 .darkType{
-    background-color: #8F6955;
+    /* background-color: #8F6955; */
+    background-color: #715242;
 }
 .steelType{
-    background-color: #C4C2DB;
+    /* background-color: #C4C2DB; */
+    background-color: #918EB9;
 }
 .fairyType{
     background-color: #F9AFFF;
