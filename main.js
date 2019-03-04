@@ -86,7 +86,6 @@ let number = 1
 async function getPoke(mainUrl, number) {
     let generating = document.querySelector('.loadingPkm');
     let generatingMsg = document.querySelector('.ongoing');
-    let generatingMsgReady = document.querySelector('.ready');
     let pkballAnimation = document.querySelector('.o-pokeball')
     while (number <= gen1) {
         try {
@@ -114,13 +113,13 @@ async function getPoke(mainUrl, number) {
 
         pkballAnimation.style.animation = 'pkbrotate 5s ease-in-out infinite';
         generating.style.display = 'flex';
+        generatingMsg.innerHTML = `Generating ${(number * 0.66).toFixed(0)}%` ;
     }
 
-    setTimeout(timeOutModal = () => { generating.style.display = 'none' }, 6500)
-    generatingMsg.style.display = 'none';
-    generatingMsgReady.style.display = 'flex';
-    generating.style.animation = 'allGenerated 7s ease-in-out 1'
-    pkballAnimation.style.animation = 'pkbrotate 5s ease-in-out 1';
+    setTimeout(timeOutModal = () => { generating.style.display = 'none' }, 9500)
+    setTimeout(timeOutModal = () => { generatingMsg.innerText = 'All PKM Ready !!!' }, 3000)
+    generating.style.animation = 'allGenerated 10s ease-in-out 0s 1'
+    pkballAnimation.style.animation = 'pkbrotate 5s ease-in-out 0s 1';
 }
 // ------------------------
 

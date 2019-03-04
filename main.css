@@ -330,15 +330,6 @@ h6{
     font-weight: bold;
 }
 
-.ready{
-    display: none;
-    position: relative;
-    bottom: -7.5px;
-    margin: 0;
-    font-size: 16pt;
-    font-weight: bold;
-}
-
 @keyframes generatingAnimation {
     0%{
         transform: translateY(0);
